@@ -138,3 +138,68 @@ const esPalindromo = (palabra = "") => {
 console.log(esPalindromo("Salas"));
 
 // 8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+
+const eliminarCaracteres = (texto = "", patron = "") =>
+  (!texto)
+    ? "No has ingresado un texto"
+    : (!patron)
+      ? "No has ingresado un patrón de caracteres"  
+      : texto.replace(new RegExp(patron, "ig"), "");
+
+console.log(eliminarCaracteres());
+console.log(eliminarCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5"));
+console.log(eliminarCaracteres("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz"));
+
+// 9) Programa una función que obtenga un numero aleatorio entre 501 y 600.
+
+const numeroAleatorio = () => Math.round((Math.random() * 100) + 500);
+
+console.log(numeroAleatorio());
+
+// 10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
+
+const esCapicua = (numero = 0) => {
+  
+  if (!numero) return undefined;
+  
+  if (typeof numero !== "number") return null;
+  
+  numero = numero.toString();
+
+  let numeroAlReves = numero.split("").reverse().join("");
+
+  if (numero === numeroAlReves) {
+    return true
+  } 
+  else {
+    return false
+  }
+}
+
+console.log(esCapicua());
+console.log(esCapicua("2002"));
+console.log(esCapicua(2002));
+console.log(esCapicua(2000));
+
+// 11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+
+const factorial = (numero = undefined) => {
+  
+  if (numero === undefined) return undefined;
+  if (typeof numero !== "number") return undefined;
+  if (numero <= 0) return undefined;
+
+  let factorial = 1;
+
+  for (let i = numero; i > 1; i--) {
+    factorial *= i;
+  }
+
+  return factorial;
+}
+
+console.log(factorial());
+console.log(factorial("Hola"));
+console.log(factorial(-10));
+console.log(factorial(0));
+console.log(factorial(5));
