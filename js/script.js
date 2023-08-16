@@ -203,3 +203,85 @@ console.log(factorial("Hola"));
 console.log(factorial(-10));
 console.log(factorial(0));
 console.log(factorial(5));
+
+// 12) Programa una función que determine si un número es primo (aquel que solo es divisible por sí mismo y 1) o no, pe. miFuncion(7) devolverá true.
+
+const esPrimo = (numero = undefined) => {
+
+  if (numero === undefined) return "Debe ingresar un número a evaluar";
+
+  if (typeof numero !== "number") return "Debe ingresar un valor expresado en formato numérico";
+
+  if (numero <= 1) return "El número debe ser positivo y mayor a 1";
+
+  let divisible = false;
+
+  for (let i = 2; i < numero; i++) {
+    if (numero % i === 0) {
+      divisible = true;
+      break;
+    }
+  }
+
+  return (divisible)
+    ? `El número ${numero} no es primo`
+    : `El número ${numero} es primo`
+}
+
+console.log(esPrimo());
+console.log(esPrimo("Hola"));
+console.log(esPrimo(-20));
+console.log(esPrimo(0));
+console.log(esPrimo(6));
+console.log(esPrimo(7));
+
+// 13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+
+const esPar = (numero = undefined) => {
+
+  if (numero === undefined) return "Debe ingresar un número";
+
+  if (typeof numero !== "number") return "Debe ingresar un valor de tipo numérico"
+
+  return (numero % 2 === 0)
+    ? `El número ${numero} es par`
+    : `El número ${numero} es impar`;
+}
+
+console.log(esPar());
+console.log(esPar("Hola"));
+console.log(esPar(3));
+console.log(esPar(4));
+
+// 14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+
+const convertirGrados = (grados = undefined, unidad = undefined) => {
+
+  if (grados === undefined) return "Debe ingresar un valor";
+
+  if (typeof grados !== "number") return "El valor ingresado debe ser de tipo numérico" 
+
+  if (unidad === undefined) return "Debe ingresar la unidad a la que desea cambiar el valor";
+
+  if (typeof unidad !== "string") return "Debe ingresar una cadena de texto, siendo 'C' para convertir a Celcius o 'F' para convertir a Farenheit";
+
+  if (unidad.toLowerCase() === "c" || unidad.toLowerCase() === "f") {
+  
+    if (unidad.toLowerCase() === "c") return `${grados} Farenheit son ${((grados - 32) * 5/9).toFixed(1)} grados Celsius`;
+
+    if (unidad.toLowerCase() === "f") return `${grados} Celsius son ${(grados * 9/5 + 32).toFixed(1)} grados Farenheit`;
+  }
+  else {  
+    return "Debe ingresar 'C' para seleccionar grados Celsius o 'F' para seleccionar grados Farenheit";
+  }
+}
+
+console.log(convertirGrados());
+console.log(convertirGrados("Hola"));
+console.log(convertirGrados(15));
+console.log(convertirGrados(15, 10));
+console.log(convertirGrados(15, "Hola"));
+console.log(convertirGrados(32, "c"));
+console.log(convertirGrados(45, "C"));
+console.log(convertirGrados(17, "f"));
+console.log(convertirGrados(15, "F"));
