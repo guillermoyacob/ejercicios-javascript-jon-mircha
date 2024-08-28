@@ -82,7 +82,7 @@ console.log(repitePalabras("Hola mundo", 3));
 // 5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
 
 const fraseInvertida = (cadena = "") => {
-  
+
   if (typeof cadena !== "string") return "El objeto ingresado no es una cadena";
 
   if (!cadena) return "Debe ingresar una cadena de texto";
@@ -97,7 +97,7 @@ console.log(fraseInvertida("Hola mundo"));
 // 6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
 
 const contarPalabras = (cadena = "", palabra = "") => {
-  
+
   if (typeof cadena !== "string") return "El primero objeto debe ser de tipo cadena";
 
   if (!cadena) return "Debe ingresar una cadena de texto";
@@ -107,7 +107,7 @@ const contarPalabras = (cadena = "", palabra = "") => {
   if (!cadena) return "Debe ingresar una palabra a buscar";
 
   let contadorDeCoincidencias = 0;
-  
+
   let posicion = 0;
 
   while (posicion !== -1) {
@@ -125,7 +125,7 @@ console.log(contarPalabras("Hola mundo, chau mundo", "mundo"));
 // 7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
 
 const esPalindromo = (palabra = "") => {
-  
+
   if (typeof palabra !== "string") return "Debe ingresar un string";
   if (!palabra) return ("Debe ingresar una palabra");
 
@@ -143,7 +143,7 @@ const eliminarCaracteres = (texto = "", patron = "") =>
   (!texto)
     ? "No has ingresado un texto"
     : (!patron)
-      ? "No has ingresado un patrón de caracteres"  
+      ? "No has ingresado un patrón de caracteres"
       : texto.replace(new RegExp(patron, "ig"), "");
 
 console.log(eliminarCaracteres());
@@ -159,18 +159,18 @@ console.log(numeroAleatorio());
 // 10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
 
 const esCapicua = (numero = 0) => {
-  
+
   if (!numero) return undefined;
-  
+
   if (typeof numero !== "number") return null;
-  
+
   numero = numero.toString();
 
   let numeroAlReves = numero.split("").reverse().join("");
 
   if (numero === numeroAlReves) {
     return true
-  } 
+  }
   else {
     return false
   }
@@ -184,7 +184,7 @@ console.log(esCapicua(2000));
 // 11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
 
 const factorial = (numero = undefined) => {
-  
+
   if (numero === undefined) return undefined;
   if (typeof numero !== "number") return undefined;
   if (numero <= 0) return undefined;
@@ -259,19 +259,19 @@ const convertirGrados = (grados = undefined, unidad = undefined) => {
 
   if (grados === undefined) return "Debe ingresar un valor";
 
-  if (typeof grados !== "number") return "El valor ingresado debe ser de tipo numérico" 
+  if (typeof grados !== "number") return "El valor ingresado debe ser de tipo numérico"
 
   if (unidad === undefined) return "Debe ingresar la unidad a la que desea cambiar el valor";
 
   if (typeof unidad !== "string") return "Debe ingresar una cadena de texto, siendo 'C' para convertir a Celcius o 'F' para convertir a Farenheit";
 
   if (unidad.toLowerCase() === "c" || unidad.toLowerCase() === "f") {
-  
+
     if (unidad.toLowerCase() === "c") return `${grados} Farenheit son ${((grados - 32) * 5/9).toFixed(1)} grados Celsius`;
 
     if (unidad.toLowerCase() === "f") return `${grados} Celsius son ${(grados * 9/5 + 32).toFixed(1)} grados Farenheit`;
   }
-  else {  
+  else {
     return "Debe ingresar 'C' para seleccionar grados Celsius o 'F' para seleccionar grados Farenheit";
   }
 }
@@ -285,3 +285,96 @@ console.log(convertirGrados(32, "c"));
 console.log(convertirGrados(45, "C"));
 console.log(convertirGrados(17, "f"));
 console.log(convertirGrados(15, "F"));
+
+// 15) Programa una función para convertir números de base binaria a decimal y viceversa, pe. miFuncion(100,2) devolverá 4 base 10.
+
+const convertirBinarioDecimal = (numero = undefined, base = undefined) => {
+
+  if (numero === undefined) return "Debe ingresar un valor";
+
+  if (typeof numero !== "number") return "El valor ingresado debe ser de tipo numérico"
+
+  if (base === undefined) return "Debe ingresar la unidad en la que está el número";
+
+  if (typeof base !== "number") return "Debe ingresar un número que represente la base, siendo 2 para convertir de binario a decimal o 10 para convertir de decimal a binario";
+
+  if (base === 2) {
+    return `El número ${numero} en base ${base} es ${parseInt(numero, base)} en base 10`
+  }
+  else if (base === 10) {
+    return `El número ${numero} en base ${base} es ${numero.toString(2)} en base 2`
+  }
+  else {
+    return `La base ${base} ingresada no es válida válida`
+  }
+}
+
+console.log(convertirBinarioDecimal());
+console.log(convertirBinarioDecimal("2"));
+console.log(convertirBinarioDecimal(100));
+console.log(convertirBinarioDecimal(100, "2"));
+console.log(convertirBinarioDecimal(100, 2));
+console.log(convertirBinarioDecimal(4, 10));
+console.log(convertirBinarioDecimal(6, 12));
+
+// 16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+
+const aplicaDescuento = (monto = undefined, porcentaje = undefined) => {
+
+  if (monto === undefined) return "Debe ingresar un monto";
+
+  if (typeof monto !== "number") return "Debe ingresar un valor numérico";
+
+  if (monto === 0) return "El monto no puede ser 0";
+
+  if (Math.sign(monto) === -1) return "El monto no puede ser negativo";
+
+  if (porcentaje === undefined) return "Debe ingresar un número que represente el porcentaje a descontar";
+
+  if (typeof porcentaje !== "number") return "Debe ingresar un valor numérico como segundo parámetro";
+
+  if (porcentaje === 0) return "El descuento no puede ser de 0 porciento";
+
+  if (Math.sign(porcentaje) === -1) return "El descuento no puede ser negativo";
+
+  return `El ${porcentaje}% de descuento sobre ${monto} es ${monto / 100 * (100 - porcentaje)}`;
+}
+
+console.log(aplicaDescuento());
+console.log(aplicaDescuento("1000"));
+console.log(aplicaDescuento(-1000));
+console.log(aplicaDescuento(0));
+console.log(aplicaDescuento(1000));
+console.log(aplicaDescuento(1000, "20"));
+console.log(aplicaDescuento(1000, -20));
+console.log(aplicaDescuento(1000, 0));
+console.log(aplicaDescuento(1000, 20));
+
+// 17) Programa una función que dada una fecha válida determine cuantos años han pasado hasta el día de hoy, pe. miFuncion(new Date(1984,6,26)) devolverá 40 años (en 2024). Hay que recordar que los meses empiezan a contar en cero, Enero (0).
+
+const calcularAnios = (fecha = undefined) => {
+
+  if (fecha === undefined) return console.warn("No ingresaste la fecha");
+
+  if (!(fecha instanceof Date)) return console.warn("El objeto que ingresaste no es una fecha válida");
+
+  let hoyMenosFecha = new Date().getTime() - fecha.getTime();
+
+  let aniosEnMilisegundos = 1000 * 60 * 60 * 24 * 365;
+
+  let aniosHumanos = Math.floor(hoyMenosFecha / aniosEnMilisegundos);
+
+  return (Math.sign(aniosHumanos) === -1)
+    ? console.info(`Faltan ${Math.abs(aniosHumanos)} años para el ${fecha.getFullYear()}`)
+    : (Math.sign(aniosHumanos) === 1)
+      ? console.info(`Han pasado ${aniosHumanos} años, desde ${fecha.getFullYear()}`)
+      : console.info(`Estamos en el año actual ${fecha.getFullYear()}`);
+}
+
+calcularAnios();
+calcularAnios({});
+calcularAnios(false);
+calcularAnios(new Date());
+calcularAnios(new Date(1984, 6, 26));
+calcularAnios(new Date(1884, 6, 26));
+calcularAnios(new Date(2084, 6, 26));
